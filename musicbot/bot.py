@@ -117,6 +117,9 @@ log = logging.getLogger(__name__)
 # TODO:  add an aliases command to manage command aliases.
 # TODO:  maybe allow aliases to contain whole/partial commands.
 
+if sys.platform == 'win32':
+	asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
 
 class MusicBot(discord.Client):
     def __init__(
